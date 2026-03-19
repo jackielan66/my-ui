@@ -59,6 +59,22 @@ when we console.log(node), we will see the element structure live above.
 So we just need to implement a function to create a element and use the parameter to set the element's props and children.
 
 
+## Step 1
+if we use `@babel/plugin-transform-react-jsx` to change the JSX, we will see the element structure like this:
+```
+ {
+     "type": "h1",
+     "key": null,
+     "ref": null,
+     "props": {
+         "title": "h1",
+         "children": "React"
+     }
+ }
+```
+So we just need to implement a function. we use `document.createElement` to create a element. use `element.setAttribute` to set the element's props. and use `document.createTextNode` to create a text node.
+in the end , we use `element.appendChild` to append the text node to the element.
+
 
 
 

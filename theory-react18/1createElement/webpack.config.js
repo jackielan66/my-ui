@@ -27,12 +27,12 @@ module.exports = {
         collapseWhitespace: false, // 折叠空白字符
       },
       // 可选：指定自定义HTML模板（如果需要自定义HTML结构，创建src/index.html后取消注释）
-      // template: "./src/index.html"
+      template: "./src/index.html"
     }),
   ],
 
   // 4. 模式配置（development：开发模式，production：生产模式）
-  mode: "development",
+  mode: "production",
   // 核心新增：配置 module 处理 JS/JSX 文件
   module: {
     rules: [
@@ -45,22 +45,22 @@ module.exports = {
         use: {
           loader: "babel-loader",
           // Babel 配置（也可抽离到 .babelrc 或 babel.config.json）
-        //   options: {
-        //     presets: [
-        //       // 预设1：兼容浏览器（按需转译 ES6+ 语法）
-        //       "@babel/preset-env",
-        //       // 预设2：编译 React/JSX（核心）
-        //       [
-        //         "@babel/preset-react",
-        //         {
-        //           // React 17+ 推荐：自动导入 JSX 运行时，无需手动 import React
-        //           runtime: "automatic",
-        //           // 开发环境保留 React 警告（生产环境自动关闭）
-        //           development: process.env.NODE_ENV === "development",
-        //         },
-        //       ],
-        //     ],
-        //   },
+          // options: {
+          //   presets: [
+          //     // 预设1：兼容浏览器（按需转译 ES6+ 语法）
+          //     "@babel/preset-env",
+          //     // 预设2：编译 React/JSX（核心）
+          //     [
+          //       "@babel/preset-react",
+          //       {
+          //         // React 17+ 推荐：自动导入 JSX 运行时，无需手动 import React
+          //         runtime: "automatic",
+          //         // 开发环境保留 React 警告（生产环境自动关闭）
+          //         development: process.env.NODE_ENV === "development",
+          //       },
+          //     ],
+          //   ],
+          // },
         },
       },
     ],
@@ -69,4 +69,24 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
   },
+   // 核心新增：devServer 配置
+  devServer: {
+    static: path.join(__dirname, "dist"), // 静态文件目录（匹配 output.path）
+    port: 3000, // 启动端口（自定义，如 8080、3000）
+    open: true, // 启动后自动打开浏览器
+    // hot: true, // 启用热模块替换（HMR），修改代码无需刷新整个页面
+    // compress: true, // 启用 gzip 压缩
+    // historyApiFallback: true, // 解决 React 路由刷新 404 问题（可选）
+    // // 可选：代理配置（解决跨域，比如对接后端接口）
+    // proxy: {
+    //   "/api": {
+    //     target: "http://localhost:8080", // 后端接口地址
+    //     changeOrigin: true, // 开启跨域
+    //     pathRewrite: { "^/api": "" }, // 去掉请求路径中的 /api 前缀
+    //   },
+    // },
+  },
+  // mode: "development",
+  // 可选：开发环境源码映射（方便调试，报错显示原文件行号）
+  // devtool: "eval-cheap-module-source-map",
 };
