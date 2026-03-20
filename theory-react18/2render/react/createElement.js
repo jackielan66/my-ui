@@ -1,12 +1,12 @@
 
 
 export default function createElement(tagName, props, ...children) {
-    // parameter is converted by babel.the babel help us transform the JSX to the parameter.
-    // so when we use jsx. BABEL is required
+    // parameter is converted by babel.The babel plugin help us transform the JSX to the parameter.
+    // so when we use jsx. BABEL is required.
     // tagname like div components
     // props like title style classname 
 
-    console.log(tagName, props, children,"selft closing");
+    // console.log(tagName, props, children,"selft closing");
 
     return {
         type: tagName,

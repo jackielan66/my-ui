@@ -23,5 +23,12 @@ and createElement function return a data structure like this:
 }
 ```
 
-so this is the important part.we just need to implement a function and return a data like above.
+so this is the important part. We just need to implement a function and return a data like above.
+
+## reactdom  render function
+render function's parameter is like this:`render(element,container)`
+`element` is the data structure returned by createElement function.
+`container` is the dom element which we want to render into.
+
+so the the important part is: we must change the parameter `element` to dom element. and append it to the `container` Dom.
 

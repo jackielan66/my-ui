@@ -52,7 +52,6 @@ after the `@babel/plugin-transform-react-jsx` change the JSX, the element struct
 let node = {
   type: 'div',
   props: {},
-  children: []
 }
 ```
 when we console.log(node), we will see the element structure live above.
