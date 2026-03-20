@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- html-webpack-plugin 会替换 <%= htmlWebpackPlugin.options.title %> 为配置的title -->
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+  <!-- 打包后的JS会自动注入到body末尾 -->
+  <div id="root"></div>
+</body>
+</html>
